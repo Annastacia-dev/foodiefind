@@ -27,7 +27,7 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   gem "spring"
-  gem 'listener', '~> 3.7'
+  gem 'listen', '~> 3.7'
 end
 
 gem 'bootsnap', '>= 1.4.4', require: false
