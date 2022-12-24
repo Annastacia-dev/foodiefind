@@ -1,0 +1,72 @@
+.header.container{
+    /* background: var(--primary-color); */
+    background-image: url(https://img.freepik.com/free-vector/grunge-diagonal-stripe-background_1409-1366.jpg?w=826&t=st=1671904995~exp=1671905595~hmac=3a46ec3d41f4d7677523749a7fa67ee47554e9d72bb1b052c79c278295188cbf);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.glass{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+ .header h1{
+    font-family: var(--tertiary-font);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 3rem;
+    text-transform: capitalize;
+    color: var(--primary-color);
+  }
+
+  .header .foodimage img{
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 3rem;
+    animation: spin 120s linear infinite;
+  }
+
+  .header p{
+    margin-top: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .header .btn{
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .header .btn:hover{
+    background: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  .header .btn:active:focus{
+    background: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
