@@ -5,7 +5,7 @@
   margin-top: 30px;
 }
 
-.header .container{
+.glasscontainer{
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
   border-radius: 10px;

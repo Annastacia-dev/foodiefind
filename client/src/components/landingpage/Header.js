@@ -5,8 +5,8 @@ import foodpng from '../../images/landingpage/foodie.png'
 const Header = () => {
   return (
     <>
-    <div className="header">
-      <div className="container">
+    <div id='home' className="header">
+      <div className="container glasscontainer">
         <div className="row">
           <div className="col-md-6">
             <div className="header-content">

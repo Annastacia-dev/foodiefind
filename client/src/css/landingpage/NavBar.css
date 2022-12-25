@@ -6,9 +6,12 @@
     margin-top: 30px;
 }
 
-.scrolled{
-    background-color: #fff;
+#mainNav.scrolled{
+    background-color: var(--background-color);
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    border-bottom: none;
+    transition: all 0.3s ease-in-out;
+    margin-top: 0;
 }
 
 .navbar-brand i{
@@ -28,8 +31,14 @@
 
 .nav-link{
     margin: 0 1rem;
-    color: #000;
+    color: #333;
 }
+
+.nav-link:hover{
+ color: var(--secondary-color); 
+}
+
+
 
 .navbar .btn-primary{
     background-color: var(--secondary-color);
