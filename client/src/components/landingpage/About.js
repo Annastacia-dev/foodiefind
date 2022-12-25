@@ -16,10 +16,10 @@ const About = () => {
           <Col md={6} >
           <div className="header-content">
               <h1 className="header-title">
-                About Us.
+                About.
               </h1>
               <p className="about-text">
-              Welcome to our restaurant review and booking platform, where foodies can discover and book the best restaurants in their city. Our user-friendly interface allows users to browse ratings and reviews, create lists of their favorite restaurants, and connect with other foodies in their area.
+              Welcome to Foodie Find, a restaurant review and booking platform, where foodies can discover and book the best restaurants in their city. Our user-friendly interface allows users to browse ratings and reviews, create lists of their favorite restaurants, and connect with other foodies in their area.
               </p>
               <p className="about-text">
               In addition to helping users find the perfect restaurant for any occasion, we also provide a platform for restaurants to create profiles and showcase their menus, photos, and other information. This allows diners to get a better understanding of the restaurant's atmosphere, menu options, and overall vibe before they visit.

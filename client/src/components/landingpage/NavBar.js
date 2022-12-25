@@ -3,7 +3,6 @@ import '../../css/landingpage/NavBar.css'
 
 const NavBar = () => {
 
-  // on scroll add class scrolled to navbar
   window.onscroll = function() {scrollFunction()};
   function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -27,10 +26,10 @@ const NavBar = () => {
                     <a href="#home" className="nav-link">Home</a>
                 </li>
                 <li className="nav-item">
-                    <a href="#about" className="nav-link">About Us</a>
+                    <a href="#about" className="nav-link">About</a>
                 </li>
                 <li className="nav-item">
-                    <a href="#services" className="nav-link">Services</a>
+                    <a href="#features" className="nav-link">Features</a>
                 </li>
                 <li className="nav-item">
                     <a href="#contacts" className="nav-link">Contact</a>

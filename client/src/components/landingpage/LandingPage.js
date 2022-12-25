@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './NavBar'
 import Header from './Header'
 import About from './About'
+import Features from './Features'
 
 function LandingPage() {
   return (
@@ -10,6 +11,7 @@ function LandingPage() {
       <NavBar />
       <Header />
       <About />
+      <Features />
     </div>
     </>
   )

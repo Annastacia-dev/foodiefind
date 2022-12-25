@@ -1,0 +1,28 @@
+.features{
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.feature{
+    padding: 20px 0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.feature i{
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.feature p{
+    margin-top: 20px;
+    font-size: 14px;
+}
