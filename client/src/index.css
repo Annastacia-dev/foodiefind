@@ -9,6 +9,7 @@
     --quaternary-font: 'Trocchi', serif;
     --quinary-font: 'Solway', serif;
     --primary-color: #CD192F;
+    --secondary-color: #659B38;
     --background-color: #E1DDDD;
 }
 
@@ -23,4 +24,5 @@ body{
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+    background-color: var(--background-color);
 }
