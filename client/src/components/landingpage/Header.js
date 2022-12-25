@@ -1,14 +1,12 @@
 import React from 'react'
 import '../../css/landingpage/Header.css'
-import NavBar from './NavBar'
 import foodpng from '../../images/landingpage/foodie.png'
 
 const Header = () => {
   return (
-  // bootstrap header
+    <>
     <div className="header">
-      <NavBar />
-      <div className="container"> 
+      <div className="container">
         <div className="row">
           <div className="col-md-6">
             <div className="header-content">
@@ -29,6 +27,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -4,10 +4,10 @@ import NavBar from './NavBar'
 
 function LandingPage() {
   return (
-    <div>
-      {/* <NavBar /> */}
-      <Header />
-    </div>
+    <>
+      <NavBar />
+      <Header /> 
+    </>
   )
 }
 
