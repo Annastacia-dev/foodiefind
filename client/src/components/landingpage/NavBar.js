@@ -14,7 +14,7 @@ const NavBar = () => {
 
 
   return (
-    <nav id="mainNav" className="navbar navbar-expand-lg navbar-light fixed-top py-3">
+    <nav id="mainNav" className=" navbar navbar-expand-lg navbar-light fixed-top py-3">
     <div className="container px-4 px-lg-5">
         <a href="#home" className="navbar-brand">
         <i className="fa-solid fa-utensils"></i>

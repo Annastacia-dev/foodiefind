@@ -1,4 +1,6 @@
 #mainNav.navbar{
+    background: rgba(255, 255, 255, 0.001);
+    backdrop-filter: blur(4px);
     border-bottom: 1px solid #e7e7e7;
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
     width: 80%;
@@ -10,6 +12,7 @@
     background-color: var(--background-color);
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
     border-bottom: none;
+    width: 100%;
     transition: all 0.3s ease-in-out;
     margin-top: 0;
 }
@@ -64,4 +67,15 @@
 
 .navbar-toggler{
     border: none;
+}
+
+/* media */
+@media screen and (max-width: 768px){
+    .navbar-brand{
+        font-size: 0.9rem;   
+    }
+    .navbar-brand i{
+        margin-right: 0.5rem;
+    }
+    
 }

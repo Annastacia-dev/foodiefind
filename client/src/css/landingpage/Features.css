@@ -1,12 +1,14 @@
 .features{
     padding: 50px 0;
-    margin-top: 50px;
 }
 
 .feature{
     padding: 20px 0;
     margin-top: 30px;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .feature i{
@@ -24,5 +26,27 @@
 
 .feature p{
     margin-top: 20px;
+    text-align: center;
     font-size: 14px;
+    line-height: 1.9;
+    width: 70%;
+}
+
+/* Media */
+@media screen and (max-width: 768px){
+    .features{
+        margin-top: 50px;
+    }
+    .feature{
+        padding: 10px;
+    }
+    .feature i{
+        font-size: 30px;
+    }
+    .feature h3{
+        font-size: 18px;
+    }
+    .feature p{
+        width: 100%;
+    }
 }
