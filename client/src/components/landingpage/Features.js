@@ -5,7 +5,7 @@ import '../../css/landingpage/Features.css'
 const Features = () => {
   return (
     <>
-    <div className="features">
+    <div id='features' className="features">
       <Container>
         <Row>
         <div className="header-content">

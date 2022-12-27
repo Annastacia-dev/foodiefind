@@ -1,0 +1,35 @@
+.links{
+   background-color: var(--primary-color);
+   width: 95%;
+   padding: 2.5rem;
+}
+.links .header-title{
+   color: #fff;
+}
+
+.links-title {
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+.links-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.links-links a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.links-links a:hover {
+    color: #000;
+    text-decoration: none;
+}
