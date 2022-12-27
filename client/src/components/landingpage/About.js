@@ -24,9 +24,6 @@ const About = () => {
               <p className="about-text">
               In addition to helping users find the perfect restaurant for any occasion, we also provide a platform for restaurants to create profiles and showcase their menus, photos, and other information. This allows diners to get a better understanding of the restaurant's atmosphere, menu options, and overall vibe before they visit.
               </p>
-              <p className="about-text">
-              At Foodie Find, we are committed to providing the best possible user experience and are constantly working to improve our platform and add new features. We hope you enjoy using our app and discovering new culinary experiences!
-              </p> 
             </div>
           </Col>
         </Row>
