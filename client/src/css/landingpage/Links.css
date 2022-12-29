@@ -2,6 +2,7 @@
    background-color: var(--primary-color);
    width: 95%;
    padding: 2.5rem;
+   margin-top: 50px;
 }
 .links .header-title{
    color: #fff;
@@ -11,7 +12,7 @@
     font-size: 2em;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
 }
 
 .links-links {
@@ -32,4 +33,21 @@
 .links-links a:hover {
     color: #000;
     text-decoration: none;
+}
+
+/* Media */
+@media screen and (max-width: 768px){
+    .links{
+        padding: 1.5rem;
+    }
+    .links .header-title{
+        font-size: 40px;
+        margin-top: 0;
+    }
+    .links-title{
+        font-size: 25px;
+    }
+    .links-links a{
+        font-size: 12px;
+    }
 }

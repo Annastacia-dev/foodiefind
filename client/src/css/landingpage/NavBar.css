@@ -71,8 +71,18 @@
 
 /* media */
 @media screen and (max-width: 768px){
+    #mainNav.navbar{
+        width: 95%;
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+    #mainNav.scrolled{
+        margin-top: 0;
+        width: 100%;
+        margin-left: 0;
+    }
     .navbar-brand{
-        font-size: 0.9rem;   
+        font-size: 15px;   
     }
     .navbar-brand i{
         margin-right: 0.5rem;

@@ -77,18 +77,22 @@
     margin-top: 0;
   }
   .header-title{
-    font-size: 25px;
+    font-size: 22px;
+    margin-top: 80px;
   }
   .header-text{
     font-size: 14px;
     margin: 20px 10px;
   }
   .header-image img{
-    width: 100%;
+    width: 80%;
     height: 100%;
   }
   .header .btn{
     font-size: 1rem;
     padding: 0.5rem 1rem;
+  }
+  .glasscontainer{
+    width: 95%;
   }
 }

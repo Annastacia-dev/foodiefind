@@ -48,3 +48,19 @@
     font-size: 1.2rem;
     text-align: center;
 }
+
+@media screen and (max-width: 768px){
+    .footer-links{
+        gap: 5px;
+    }
+    .footer-links a{
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        border: 2px solid #fff;
+    }
+
+    .footer-copyright p{
+        font-size: 10px;
+    }
+}
