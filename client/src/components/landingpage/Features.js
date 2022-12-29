@@ -27,7 +27,7 @@ const Features = () => {
           </Col>
           <Col>
             <div className="feature">
-              <i class="fa-regular fa-note-sticky"></i>
+              <i className="fa-regular fa-note-sticky"></i>
               <h3>Keep Track</h3>
               <p>
                 Create lists of your favorite restaurants and keep track of the ones you want to visit.
