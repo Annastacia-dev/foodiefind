@@ -44,3 +44,5 @@ gem 'faker'
 
 gem 'rack-cors'
 
+gem 'omniauth'
+
