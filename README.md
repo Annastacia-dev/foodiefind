@@ -1,24 +1,2 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## FOODIE FIND
+Find and book the perfect restaurant for any occasion on Foodie Find. Browse ratings and reviews, create lists of your favorite spots, and connect with other foodies. Discover the best restaurants in your city and make reservations at your favorite spots, all in one place.
