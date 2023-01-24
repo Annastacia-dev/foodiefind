@@ -32,19 +32,13 @@ end
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'devise'
-
-gem 'devise_token_auth'
+gem 'jwt'
 
 gem 'active_model_serializers'
 
 gem 'foreman'
 
-gem 'faker'
-
 gem 'rack-cors'
-
-gem 'omniauth'
 
 gem 'bcrypt'
 

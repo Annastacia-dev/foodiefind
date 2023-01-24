@@ -37,5 +37,16 @@ module FoodieFind
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # cookie store
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
+    config.action_dispatch.cookies_same_site_protection = :none
+
+    # time zone
+    config.time_zone = 'Africa/Nairobi'
+    config.active_record.default_timezone = :local
+
   end
 end
