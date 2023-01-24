@@ -46,3 +46,5 @@ gem 'rack-cors'
 
 gem 'omniauth'
 
+gem 'bcrypt'
+
