@@ -1,84 +1,66 @@
-import React,{ useState } from 'react'
+import React,{ useState, useContext} from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import SignUp from './SignUp'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { UserContext } from '../../contexts/user'
 
 const LogIn = () => {
 
+    const navigate = useNavigate()
+
+    const { setUser } = useContext(UserContext)
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [emailError, setEmailError] = useState('')
-    const [passwordError, setPasswordError] = useState('')
-
-    const [showLogIn, setShowLogIn] = useState(true)
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const user = {
-            email: email,
-            password: password
-        }
-       fetch('/users/sign_in',{
-              method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-       })
-         .then(res => res.json())
-            .then(data => {
-                console.log(data)
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                Accepts: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
             })
+        })
+        .then(r =>{
+            if(r.ok){
+                r.json().then(user => {
+                    setUser(user)
+                    navigate('/home')
+                })
+            } else {
+                r.json().then(err => setErrors(err.errors))
+            }
+        } )
 
     }
+
+    const sucessToast = () => toast.success('You have successfully logged in!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+        style: { backgroundColor: 'green'}
+    })
+
+
 
 
 
   return (
-    <>
-   { 
-   showLogIn ? (
-        <Container>
-            <Row>
-                <Col>
-                    <h1>Log In</h1>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email"
-                            name='email' autoComplete="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                             />
-                            <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password"
-                            name='password' autoComplete="current-password"
-                            onChange={(e) => setPassword(e.target.value)}
-                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Remember Me" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
-                        {/* don't have an account sign up */}
-                        <p>Don't have an account?&nbsp;
-                            <Button variant="link" onClick={() => setShowLogIn(false)}>
-                                Sign Up
-                            </Button>
-                        </p>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
-    ) : <SignUp />
-    }
-        
-    </>
+    <div>
+      LogIn
+    </div>
   )
 }
 

@@ -51,7 +51,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ms-auto my-2 my-lg-0">
                 <li className="nav-item">
-                    <a className="btn btn-primary login" href="/login">Log In</a>
+                    <a className="btn btn-primary login" href="/auth/login">Log In</a>
                 </li>
             </ul>
         </div>

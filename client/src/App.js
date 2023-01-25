@@ -1,48 +1,21 @@
-import React,{ useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import  { Routes, Route }  from 'react-router-dom';
 import LandingPage from './components/landingpage/LandingPage';
 import SignUp from './components/userauth/SignUp';
 import LogIn from './components/userauth/LogIn';
+import Home from './components/Home';
 
 function App() {
 
-  // fetch user, i'm using devise for authentication
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/user')
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-      })
-      .then(user => {
-        setUser(user)
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
-
-
-
-  
-
-
-
-
-
-
+ 
   return (
     <div className="App">
       < Routes>
         < Route path="/" element={< LandingPage />} />
-        < Route path="/signup" element={< SignUp />} />
-        < Route path="/login" element={< LogIn setUser={setUser} />} />
+        < Route path="/auth/signup" element={< SignUp />} />
+        < Route path="/auth/login" element={< LogIn />} />
+        < Route path="/home" element={< Home />} />
       </ Routes>
     </div>
   );

@@ -16,7 +16,7 @@ const Header = () => {
               <p className="header-text">
               Find and book the perfect restaurant for any occasion on our app. Browse ratings and reviews, create lists of your favorite spots, and connect with other foodies. Discover the best restaurants in your city and make reservations at your favorite spots, all in one place.
               </p>
-              <a href="/signup" className="btn btn-outline-light btn-lg">Get Started</a>
+              <a href="/auth/signup" className="btn btn-outline-light btn-lg">Get Started</a>
             </div>
           </div>
           <div className="col-md-6">
