@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 
     def profile
-        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+        render json: @current_user, status: :ok
     end
 
     def create
@@ -16,14 +16,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
-        @user.update!(user_params)
-        render json: @user 
+        @current_user.update(user_params)
+        render json: @current_user, status: :accepted
     end
 
     def destroy
-        @user = User.find(params[:id])
-        @user.destroy
+        @current_user.destroy
         render json: { message: "User deleted successfully" }, status: :accepted
     end
 
