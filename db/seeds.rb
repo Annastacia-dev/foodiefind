@@ -7,5 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # sample user
+# Admin
+puts 'Creating Admin'
+
+User.create!
+
+
+
+
 
 

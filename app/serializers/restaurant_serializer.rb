@@ -1,3 +1,3 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :location, :cuisines, :price_range, :cover_image, :description,:phone_number, :website, :email, :opening_hours, :closing_hours, :payment_options, :delivery_options, :parking_options, :delivery_options, :takeout_options, :outdoor_seating, :has_wifi, :photos, :menu
 end
