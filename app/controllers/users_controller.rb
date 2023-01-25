@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
     skip_before_action :authorized, only: [:create]
 
-    helper_method :current_user
 
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -17,13 +16,15 @@ class UsersController < ApplicationController
     end
 
     def update
-        current_user.update!(user_params)
-        render json: { user: UserSerializer.new(current_user) }, status: :accepted  
+        @user = User.find(params[:id])
+        @user.update!(user_params)
+        render json: @user 
     end
 
     def destroy
-        current_user.destroy
-        render json: { message: "User deleted" }, status: :accepted
+        @user = User.find(params[:id])
+        @user.destroy
+        render json: { message: "User deleted successfully" }, status: :accepted
     end
 
 
