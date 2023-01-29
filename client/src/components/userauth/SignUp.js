@@ -136,7 +136,7 @@ const SignUp = () => {
                  <i className="fa-solid fa-utensils"></i>
               </a>
             <h3>Hey, there!</h3>
-            <p> Enter your personal details and start your journey with us</p>
+            <p> Discover the best restaurants in your area</p>
           </Container> 
       </Col> 
       <Col lg={8}>

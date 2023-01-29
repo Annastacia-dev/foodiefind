@@ -36,14 +36,14 @@
 .content-message h3{
     color: #fff;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 20px;
 }
 
 .content-message p{
     color: #fff;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .sign-up-form{
@@ -139,6 +139,22 @@
         margin: 0 auto;
         margin-top: -20px;
         margin-bottom: 20px;
+    }
+    .phonebrandlogo i{
+        margin-right: 5px;
+    }
+}
+
+/* Media for between 800 and 1280 */
+@media screen and (min-width: 800px) and (max-width: 1280px){
+    .sign-up{
+        height: 100vh;
+    }
+    .sign-up-form{
+        padding: 0px;
+        width: 110%;
+        margin-left: -30px;
+
     }
     .phonebrandlogo i{
         margin-right: 5px;

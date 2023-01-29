@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../contexts/user'
+import '../../css/userauth/LogIn.css'
 
 const LogIn = () => {
 
@@ -77,26 +78,32 @@ const LogIn = () => {
     
   return (
     <div>
-        <ToastContainer
-            position="top-center"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-         />
-
-        <Container className="mt-5" fluid>
-            <Row className="justify-content-center">
+        <Row className='glasscontainer sign-up justify-content-md-center mt-5 px-5'>
+            <Col lg={8}>
+            <Container style={{marginTop: '-22px'}}
+              className="sign-up-form login-form container px-4 px-lg-5" fluid>
+             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
-                    <h1 className="text-center">Log In</h1>
                     <Form onSubmit={handleSubmit}>
+                            <ToastContainer
+                            position="top-center"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            />
+                            <a href="/" className="phonebrandlogo">
+                            <i className="fa-solid fa-utensils"></i>
+                            <span className="brandname">Foodie Find</span>
+                            </a>
+                        <h3 className="text-center">Log In</h3>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" value={email} required onChange={(e) => setEmail(e.target.value)} />
+                            <Form.Control type="email" placeholder="Enter your email" value={email} required onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
@@ -109,12 +116,23 @@ const LogIn = () => {
                     </Form>
                 </Col>
             </Row>
-            <Row className="justify-content-center">
+            <Row className="justify-content-center mt-5">
                 <Col xs={12} md={6} className="text-center">
                     <p>Don't have an account? <a href="/auth/signup">Sign Up</a></p>
                 </Col>
             </Row>
         </Container>
+        </Col>
+        <Col lg={4}>
+                    <Container className="content-message container px-4 px-lg-5">
+                    <a href="/" className="brandlogo">
+                     <i className="fa-solid fa-utensils"></i>
+                    </a>
+                    <h3 className="text-center">Welcome Back!</h3>
+                    <p className="text-center">Continue to your account to see your favourite restaurants and more!</p>
+                </Container>
+         </Col>
+        </Row>
 
     </div>
   )
