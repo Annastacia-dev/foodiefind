@@ -8,6 +8,10 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Select from 'react-select';
 import {locations } from '../data/locations'
+import '../../css/userauth/SignUp.css'
+import { customStyles } from '../scss/select'
+import { sucessToast } from '../toasts/toasts'
+
 const customId = '';
 
 
@@ -18,7 +22,7 @@ const SignUp = () => {
     const { setUser } = useContext(UserContext)
 
     const [profilePicture, setProfilePicture] = useState('')
-    const [location, setLocation] = useState('')
+    const [location, setLocation] = useState(null)
     const [loading, setLoading] = useState(false)
 
 
@@ -61,7 +65,7 @@ const SignUp = () => {
           last_name: userFormData.lastName,
           username: userFormData.username,
           email: userFormData.email,
-          location: location,
+          location: location.value,
           profile_picture: profilePicture,
           admin: false,
           password: userFormData.password,
@@ -96,18 +100,7 @@ const SignUp = () => {
 
     }
 
-    const sucessToast = () => toast.success('You have successfully signed up!', {
-        position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-    })
-
-
+    
     const errorToast = () => errors.map(error => toast.error(error, {
         position: 'top-center',
         autoClose: 3000,
@@ -132,34 +125,38 @@ const SignUp = () => {
         theme: 'colored',
     }) : null
 
-    
+
+  
   return (
     <div>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-       />
-      <Container className="container px-4 px-lg-5">
+      <Row className='glasscontainer sign-up justify-content-md-center mt-5 px-5'>
+        <Col lg={4}>
+          <Container className="content-message container px-4 px-lg-5">
+              <a href="/" className="brandlogo">
+                 <i className="fa-solid fa-utensils"></i>
+              </a>
+            <h3>Hey, there!</h3>
+            <p> Enter your personal details and start your journey with us</p>
+          </Container> 
+      </Col> 
+      <Col lg={8}>
+      <Container 
+      style={{marginTop: '-22px'}}
+      className="sign-up-form container px-4 px-lg-5">
         <Row className="justify-content-md-center">
-          <Col lg={8}>
-            <h1 className="text-center">Create Account</h1>
             <Form onSubmit={handleSubmit}>
-              <Row className="justify-content-md-center">
-                  <Form.Group controlId="formBasicProfilePicture">
-                    <Form.Label>Profile Picture<span className='required'>*</span></Form.Label>
-                    <Form.Control type="file" name="profilePicture" onChange={(e) => {
-                      handleUpload(e)
-                    }} />
-                    {uploadToast()}
-                    </Form.Group>      
-              </Row>
+                <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              />
+              <h3 className="text-center">Create Account</h3>
               <Row className="justify-content-md-center">
                   <Col lg={6}>
                     <Form.Group controlId="formBasicFirstName">
@@ -190,18 +187,32 @@ const SignUp = () => {
                 </Col>
               </Row>
               <Row className="justify-content-md-center">
-                <Form.Group controlId="formBasicLocation">
-                  <Form.Label>Location<span className='required'>*</span></Form.Label>
-                  <Select
-                  name="location"
-                  placeholder="Select a Location"
-                  options={locations}
-                  value={location} 
-                  isOptionDisabled={(option) => option.isdisabled} 
-                  required
-                  onChange={e => setLocation(e.value)}>
-                  </Select>  
-                </Form.Group>
+                <Col lg={6}> 
+                   <Form.Group controlId="formBasicProfilePicture">
+                    <Form.Label>Profile Picture<span className='required'>*</span></Form.Label>
+                    <Form.Control type="file" name="profilePicture" onChange={(e) => {
+                      handleUpload(e) 
+                    }} />
+                    {uploadToast()}
+                    </Form.Group> 
+                </Col>
+                <Col lg={6}>
+                  <Form.Group controlId="formBasicLocation">
+                    <Form.Label>Location<span className='required'>*</span></Form.Label>
+                    <Select
+                    name="location"
+                    id='location'
+                    placeholder="Select a Location"
+                    options={locations}
+                    value={location} 
+                    isOptionDisabled={(option) => option.isdisabled} 
+                    required
+                    onChange={e => setLocation(e)}
+                    styles={customStyles}
+                    className="react-select"
+                    />
+                  </Form.Group>
+                </Col>
               </Row>
               <Row className="justify-content-md-center">
                 <Col lg={6}>
@@ -223,17 +234,18 @@ const SignUp = () => {
               <Button variant="primary" type="submit"
                 disabled={loading}
               >
-                Submit
+                Sign Up
               </Button>
             </Form>
-          </Col>
         </Row>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center mt-3">
           <Col lg={8}>
             <p className="text-center">Already have an account? <Link to="/auth/login">Login</Link></p>
           </Col>
         </Row>
       </Container>
+      </Col> 
+      </Row>
     </div>
   )
 }

@@ -1,0 +1,111 @@
+.sign-up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-color: #f5f5f5;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.brandlogo i{
+    margin: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-top: -50px;
+    margin-bottom: 30px;
+
+}
+
+.brandlogo{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content-message h3{
+    color: #fff;
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.content-message p{
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.sign-up-form{
+    width: 110%;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.02);
+}
+
+.sign-up-form form{
+    padding: 4px;
+}
+
+.sign-up-form form h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sign-up-form form input{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0%;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.sign-up-form form input[type="file"]{
+    margin-top: 13px;
+}
+
+.sign-up-form label{
+    font-size: 12px;
+    display: none;
+}
+
+.btn-primary{
+    background-color: #FF416C;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 40px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-color);
+}
+
+
+
+
+.sign-up-form a{
+    text-decoration: none;
+    color: #FF416C;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+
