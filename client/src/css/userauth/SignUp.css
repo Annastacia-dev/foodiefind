@@ -97,8 +97,9 @@
     background-color: var(--primary-color);
 }
 
-
-
+.btn-primary:active:focus{
+    background-color: var(--primary-color);
+}
 
 .sign-up-form a{
     text-decoration: none;
@@ -106,6 +107,45 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+.sign-up-form a:hover{
+    color: var(--primary-color);
+}
+
+.phonebrandlogo{
+    display: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px){
+    .content-message{
+        display: none;
+    }
+    .sign-up{
+        height: 100vh;
+        width: 100%;
+        background: none;
+        box-shadow: none;
+    }
+    .sign-up-form{
+        padding: 0px;
+        width: 150%;
+        margin-left: -30px;
+
+    }
+    .phonebrandlogo{
+        display: block;
+        margin: 0 auto;
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    .phonebrandlogo i{
+        margin-right: 5px;
+    }
+}
+
+
 
 
 

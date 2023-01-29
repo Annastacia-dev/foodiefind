@@ -156,6 +156,10 @@ const SignUp = () => {
               draggable
               pauseOnHover
               />
+              <a href="/" className="phonebrandlogo">
+                 <i className="fa-solid fa-utensils"></i>
+                 <span className="brandname">Foodie Find</span>
+              </a>
               <h3 className="text-center">Create Account</h3>
               <Row className="justify-content-md-center">
                   <Col lg={6}>
