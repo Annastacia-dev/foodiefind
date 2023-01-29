@@ -5,6 +5,11 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from '../../contexts/user'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import Select from 'react-select';
+import {locations } from '../data/locations'
+const customId = '';
+
 
 const SignUp = () => {
 
@@ -12,13 +17,17 @@ const SignUp = () => {
 
     const { setUser } = useContext(UserContext)
 
+    const [profilePicture, setProfilePicture] = useState('')
+    const [location, setLocation] = useState('')
+    const [loading, setLoading] = useState(false)
+
+
+
     const [userFormData, setUserFormData] = useState({
         firstName: '',
         lastName: '',
         username: '',
         email: '',
-        location: '',
-        profile_picture: '',
         password: '',
         passwordConfirmation: ''
     })
@@ -29,6 +38,22 @@ const SignUp = () => {
         setUserFormData({...userFormData, [e.target.name]: e.target.value})
     }
 
+    const handleUpload = async (e) => {
+        setLoading(true)
+        const formData = new FormData()
+        formData.append('file', e.target.files[0])
+        formData.append('upload_preset', 'afyanet');
+
+        try{
+            const res = await axios.post('https://api.cloudinary.com/v1_1/dauveffyr/image/upload', formData)
+            setProfilePicture(res.data.secure_url)
+            setLoading(false)
+        } catch(err){
+          setLoading(false)
+          console.log(err)
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const user = {
@@ -36,8 +61,8 @@ const SignUp = () => {
           last_name: userFormData.lastName,
           username: userFormData.username,
           email: userFormData.email,
-          location: userFormData.location,
-          profile_picture: userFormData.profile_picture,
+          location: location,
+          profile_picture: profilePicture,
           admin: false,
           password: userFormData.password,
           password_confirmation: userFormData.passwordConfirmation
@@ -82,10 +107,7 @@ const SignUp = () => {
         theme: 'colored',
     })
 
-   
-    console.log(errors)
 
-    // map over errors and toast them
     const errorToast = () => errors.map(error => toast.error(error, {
         position: 'top-center',
         autoClose: 3000,
@@ -98,6 +120,19 @@ const SignUp = () => {
     }))
 
 
+    const uploadToast = () => loading ? toast.info('Uploading image...', {
+        toastId: customId,
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+    }) : null
+
+    
   return (
     <div>
       <ToastContainer
@@ -114,8 +149,17 @@ const SignUp = () => {
       <Container className="container px-4 px-lg-5">
         <Row className="justify-content-md-center">
           <Col lg={8}>
-            <h1 className="text-center">Sign Up</h1>
+            <h1 className="text-center">Create Account</h1>
             <Form onSubmit={handleSubmit}>
+              <Row className="justify-content-md-center">
+                  <Form.Group controlId="formBasicProfilePicture">
+                    <Form.Label>Profile Picture<span className='required'>*</span></Form.Label>
+                    <Form.Control type="file" name="profilePicture" onChange={(e) => {
+                      handleUpload(e)
+                    }} />
+                    {uploadToast()}
+                    </Form.Group>      
+              </Row>
               <Row className="justify-content-md-center">
                   <Col lg={6}>
                     <Form.Group controlId="formBasicFirstName">
@@ -134,7 +178,8 @@ const SignUp = () => {
                 <Col lg={6}>
                   <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username<span className='required'>*</span></Form.Label>
-                    <Form.Control type="text" placeholder="Enter username" name="username" value={userFormData.username} onChange={handleChange} required />
+                    <Form.Control type="text" placeholder="Enter username" name="username" value={userFormData.username} onChange={handleChange} autoComplete="username"
+                     required />
                   </Form.Group>
                 </Col>
                 <Col lg={6}>
@@ -145,34 +190,39 @@ const SignUp = () => {
                 </Col>
               </Row>
               <Row className="justify-content-md-center">
-                <Col lg={6}>
                 <Form.Group controlId="formBasicLocation">
                   <Form.Label>Location<span className='required'>*</span></Form.Label>
-                  <Form.Control type="text" placeholder="Enter location" name="location" value={userFormData.location} onChange={handleChange} required />
+                  <Select
+                  name="location"
+                  placeholder="Select a Location"
+                  options={locations}
+                  value={location} 
+                  isOptionDisabled={(option) => option.isdisabled} 
+                  required
+                  onChange={e => setLocation(e.value)}>
+                  </Select>  
                 </Form.Group>
-                </Col>
-                <Col lg={6}>
-                  <Form.Group controlId="formBasicProfilePicture">
-                    <Form.Label>Profile Picture<span className='required'>*</span></Form.Label>
-                    <Form.Control type="text" placeholder="Enter profile picture" name="profile_picture" value={userFormData.profile_picture} onChange={handleChange} required />
-                  </Form.Group>
-                </Col>
               </Row>
               <Row className="justify-content-md-center">
                 <Col lg={6}>
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password<span className='required'>*</span></Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password" value={userFormData.password} onChange={handleChange} required />
+                    <Form.Control type="password" placeholder="Password" name="password" value={userFormData.password} autoComplete="new-password"
+                    onChange={handleChange} required />
                   </Form.Group>
                </Col>
                 <Col lg={6}>
                   <Form.Group controlId="formBasicPasswordConfirmation">
                     <Form.Label>Password Confirmation<span className='required'>*</span></Form.Label>
-                    <Form.Control type="password" placeholder="Password Confirmation" name="passwordConfirmation" value={userFormData.passwordConfirmation} onChange={handleChange} required />
+                    <Form.Control type="password" placeholder="Password Confirmation" name="passwordConfirmation" value={userFormData.passwordConfirmation}
+                    autoComplete="new-password"
+                     onChange={handleChange} required />
                 </Form.Group>
                 </Col>
               </Row>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit"
+                disabled={loading}
+              >
                 Submit
               </Button>
             </Form>
