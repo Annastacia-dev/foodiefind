@@ -19,12 +19,11 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
-    const { setUser } = useContext(UserContext)
+    const { setUser, pageLoading } = useContext(UserContext)
 
     const [profilePicture, setProfilePicture] = useState('')
     const [location, setLocation] = useState(null)
     const [loading, setLoading] = useState(false)
-
 
 
     const [userFormData, setUserFormData] = useState({
@@ -110,6 +109,7 @@ const SignUp = () => {
         draggable: true,
         progress: undefined,
         theme: 'colored',
+        style: { backgroundColor: '#CD192F', color: '#fff', fontFamily: 'Rubik, sans-serif'}
     }))
 
 
@@ -124,6 +124,15 @@ const SignUp = () => {
         progress: undefined,
         theme: 'colored',
     }) : null
+
+    if(pageLoading) return (
+      <div className="loader">
+         <h1 className="text-center">Loading...</h1>
+      </div>
+  )
+
+
+
 
 
   

@@ -4,7 +4,7 @@ import  { Routes, Route }  from 'react-router-dom';
 import LandingPage from './components/landingpage/LandingPage';
 import SignUp from './components/userauth/SignUp';
 import LogIn from './components/userauth/LogIn';
-import Home from './components/Home';
+import Home from './components/pages/Home';
 
 function App() {
 

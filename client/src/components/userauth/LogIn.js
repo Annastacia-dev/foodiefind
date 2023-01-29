@@ -10,7 +10,7 @@ const LogIn = () => {
 
     const navigate = useNavigate()
 
-    const { setUser } = useContext(UserContext)
+    const { setUser, pageLoading } = useContext(UserContext)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -71,9 +71,14 @@ const LogIn = () => {
         draggable: true,
         progress: undefined,
         theme: 'colored',
-        style: { backgroundColor: '#CD192F'}
+        style: { backgroundColor: '#CD192F', color: '#fff', fontFamily: 'Rubik, sans-serif'}
     })
 
+    if(pageLoading) return (
+        <div className="loader">
+           <h1 className="text-center">Loading...</h1>
+        </div>
+    )
 
     
   return (
