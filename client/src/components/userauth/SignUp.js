@@ -87,7 +87,9 @@ const SignUp = () => {
                     sucessToast()
                     setTimeout(() => {
                         navigate('/home')
+                        window.location.reload()
                     } , 3000)
+                    
                 })
             } else {
                 r.json().then(err =>{
@@ -102,7 +104,7 @@ const SignUp = () => {
     
     const errorToast = () => errors.map(error => toast.error(error, {
         position: 'top-center',
-        autoClose: 3000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -138,6 +140,17 @@ const SignUp = () => {
   
   return (
     <div>
+         <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              />
       <Row className='glasscontainer sign-up justify-content-md-center mt-5 px-5'>
         <Col lg={4}>
           <Container className="content-message container px-4 px-lg-5">
@@ -154,17 +167,6 @@ const SignUp = () => {
       className="sign-up-form container px-4 px-lg-5">
         <Row className="justify-content-md-center">
             <Form onSubmit={handleSubmit}>
-                <ToastContainer
-              position="top-center"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              />
               <a href="/" className="phonebrandlogo">
                  <i className="fa-solid fa-utensils"></i>
                  <span className="brandname">Foodie Find</span>

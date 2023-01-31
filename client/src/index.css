@@ -1,6 +1,10 @@
 /* import rubik poppins playfair trocchi solway */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,400;0,700;1,400;1,700&family=Solway:ital,wght@0,400;0,700;1,400;1,700&family=Trocchi:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root{
     --primary-font: 'Rubik', sans-serif;
@@ -12,6 +16,8 @@
     --primary-color-2: #CD192F;
     --secondary-color: #659B38;
 }
+
+
 
 *{
     margin: 0;

@@ -1,39 +1,37 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../contexts/user'
-import { Container, Row, Col, Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React, { useContext} from "react";
+import SideBar from "./SideBar";
+import { UserContext } from "../../contexts/user";
+import { Link } from "react-router-dom";
+import { Card, Col } from "react-bootstrap";
+
 
 const Home = () => {
 
-  const { user, restaurants } = useContext(UserContext)
-
-  console.log(restaurants)
+  const { restaurants } = useContext(UserContext);
  
   return (
-    <div>
-      <h1 className="text-center">Welcome @{user && user.username}</h1>
-      <Container className="mt-5" fluid>
-        <Row>
-          {restaurants && restaurants.map(restaurant => (
-            <Col key={restaurant.id} md={3} className="mb-4">
+    <section className="flex gap-6">
+      <SideBar />
+      <div className="m-3 text-xl text-gray-900 font-semibold">
+        <h1>Popular </h1>
+        <div className="flex flex-wrap gap-4">
+          {restaurants?.map((restaurant) => (
+            // return a card for each restaurant
+            <Col key={restaurant.id} md={6} className="mb-4">
               <Link to={`/restaurants/${restaurant.id}`}>
               <Card className="card">
                 <Card.Img variant="top" src={restaurant.cover_image} />
                 <Card.Body>
                   <Card.Title>{restaurant.name}</Card.Title>
-                  <Card.Text>
-                    {restaurant.description.substring(0, 50)}...
-                  </Card.Text>
                 </Card.Body>
               </Card>
               </Link>
             </Col>
           ))}
-        </Row>
-      </Container>
-    </div>
-    
-  )
-}
+          </div>
+      </div>
+    </section>
+  );
+};
 
-export default Home
+export default Home;

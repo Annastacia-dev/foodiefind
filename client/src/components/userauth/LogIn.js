@@ -37,8 +37,10 @@ const LogIn = () => {
                     sucessToast()
                     setTimeout(() => {
                         navigate('/home')
+                        window.location.reload()
 
                     } , 3000)
+                    
                 })
             } else {
                 r.json().then(err =>{
@@ -83,14 +85,7 @@ const LogIn = () => {
     
   return (
     <div>
-        <Row className='glasscontainer sign-up justify-content-md-center mt-5 px-5'>
-            <Col lg={8}>
-            <Container style={{marginTop: '-22px'}}
-              className="sign-up-form login-form container px-4 px-lg-5" fluid>
-             <Row className="justify-content-center">
-                <Col xs={12} md={6}>
-                    <Form onSubmit={handleSubmit}>
-                            <ToastContainer
+         <ToastContainer
                             position="top-center"
                             autoClose={3000}
                             hideProgressBar={false}
@@ -101,6 +96,13 @@ const LogIn = () => {
                             draggable
                             pauseOnHover
                             />
+        <Row className='glasscontainer sign-up justify-content-md-center mt-5 px-5'>
+            <Col lg={8}>
+            <Container style={{marginTop: '-22px'}}
+              className="sign-up-form login-form container px-4 px-lg-5" fluid>
+             <Row className="justify-content-center">
+                <Col xs={12} md={6}>
+                    <Form onSubmit={handleSubmit}>
                             <a href="/" className="phonebrandlogo">
                             <i className="fa-solid fa-utensils"></i>
                             <span className="brandname">Foodie Find</span>
