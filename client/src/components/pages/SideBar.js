@@ -41,8 +41,15 @@ const SideBar = () => {
           />
         </div>
         <div className="flex items-center gap-3">
-                <img src={user ? user.profile_picture : "https://www.w3schools.com/howto/img_avatar.png"} alt="profile" className="w-10 h-10 rounded-full object-cover" />
-                <h2 className="text-lg font-semibold">@{user?.username}</h2>
+                <img src={user ? user.profile_picture : "https://www.w3schools.com/howto/img_avatar.png"} alt={
+                    open ? user?.username : ""
+                } className={
+                    open ? "w-10 h-10 rounded-full" : "w-5 h-5 rounded-full"
+                }
+                 />
+                <h2 className={
+                    open ? "text-xl font-semibold" : "hidden"
+                }>@{user?.username}</h2>
             </div>
         <div className="mt-4 flex flex-col gap-4 relative">    
           {menus?.map((menu, i) => (
